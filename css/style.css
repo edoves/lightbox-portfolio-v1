@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 65.5%;
+}
+body {
+    box-sizing: border-box;
+    background-color: lightcoral;    
+}
+
+header {
+    text-align: center;
+}
+
+#heading {
+    text-transform: uppercase;
+    padding: 2rem;
+}
+
+img {
+    width: 100%;
+}
+
+/* css3 animation */
+
+@keyframes lighboxZoom {
+    from { transform: translate(-2%, -11%) scale(0);}
+    to { transform: translate(-2%, -11%) scale(1);}
+}
+
+@keyframes lighboxZoomOut {
+    from { transform: translate(-2%, -11%) scale(0);}
+    to { transform: translate(-2%, -11%) scale(1);}
+}
+
+.container  {
+    /* max-width: 80%;
+    margin: 0 auto; */
+}
+
+.lightbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+
+.lightbox__item {
+    position: relative;
+    font-size: 1.6rem;
+    flex: 0 17%;
+    margin: .5rem;
+}
+
+.lightbox__image img {
+    filter: grayscale(100%);
+    transition: 1s;
+}
+
+.lightbox__image img:hover {
+    filter: grayscale(0);
+    transform: scale(1.01);
+}
+
+.lightbox__item figcaption {
+    display: none;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    text-align: center;
+}
+
+figcaption:hover {
+    display: block;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.71);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 1s;
+    
+}
+
+.overlay__content {
+    position: relative;
+    width: 650px;
+    height: 450px;
+    background-color: #fff;
+    transform: translate(-2%, -11%);
+    animation-name: lighboxZoom;
+    animation-duration: 0.3s;
+    
+}
+
+#close {
+    position: absolute;
+    background: #cf7b7b;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;    
+    border-radius: 100%;
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    top: 11px;
+    right: 7px;
+    transition: background 1s;
+}
+
+a.close:hover {
+    background: red;
+}
+
+@media only screen and ( max-width: 1024px ) {
+    .lightbox__item {
+        flex: 0 26%;
+    }
+    
+}
+
+@media only screen and ( max-width: 768px ) {
+    .lightbox__item {
+        flex: 0 34%;
+    }
+    
+}
+
